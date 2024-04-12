@@ -1,10 +1,19 @@
+
+"""Your mission is to distribute available blood of different types to patients requiring transfusions, 
+considering each blood type's compatibility restrictions. 
+The blood supply is not always sufficient to meet all demands. 
+You'll be provided with the quantities of each blood type and the needs of each patient type. 
+Your goal is to optimally allocate the available blood, respecting compatibility rules. 
+Keep in mind that there could be multiple optimal solutions, 
+those that utilize the maximum possible amount of the available blood supply."""
+
 import pprint
 
 def distribute_blood(blood_avail: dict[str, int], blood_needs: dict[str, int]) -> dict[str, dict[str, int]]:
     
     res = {}
     
-    def matches(blood_type):
+    def matches(blood_type): #define the rule for blood types matches
         if blood_type == "A": match_rule = {"A" : 1, "B" : 0, "AB" : 1, "O" : 0}
         elif blood_type == "B": match_rule = {"A" : 0, "B" : 1, "AB" : 1, "O" : 0}
         elif blood_type == "AB": match_rule = {"A" : 0, "B" : 0, "AB" : 1, "O" : 0}
@@ -29,9 +38,9 @@ def distribute_blood(blood_avail: dict[str, int], blood_needs: dict[str, int]) -
                 
         res.update({ak : blood_used})   
         
-    return res
-    
+    return res   
     
 pprint.pp(distribute_blood({"A": 10, "B": 10, "AB": 20, "O": 20}, {"A": 20, "B": 10, "AB": 30, "O": 0}))
 
+#mission successfully complete
 
