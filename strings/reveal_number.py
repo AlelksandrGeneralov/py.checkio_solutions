@@ -5,7 +5,7 @@ def reveal_num(line: str):
     dot = False
     
     for char in line:
-        if char == "-":
+        if char == "-" and not res:
             sign = "-"
         elif char in "." and not dot:
             dot = True
