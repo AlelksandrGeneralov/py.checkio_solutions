@@ -5,16 +5,18 @@ def reveal_num(line: str):
     dot = False
     
     for char in line:
-        if char in "+-" and not res:
-            sign = "-"*(char == "-")
+        if char == "-" and not res:
+            sign = "-"
         elif char in "." and not dot:
             dot = True
             res += "."
         elif char.isdigit():
             res += char
-        
-    if res:
-        return(int, float)[dot](sign + res)
+
+    if dot:
+        return float(sign + res)
+    else:
+        return int(sign + res)
 
 
 print("Example:")
